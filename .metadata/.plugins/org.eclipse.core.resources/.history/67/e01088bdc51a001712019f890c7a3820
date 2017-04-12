@@ -1,0 +1,37 @@
+package controleurs;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import beans.beanCpt;
+import models.modelCreationCpt;
+
+@WebServlet("/controleurCreationCpt1")
+public class controleurCreationCpt1 extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+     
+    public controleurCreationCpt1() {
+        super();
+       
+    }
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		this.getServletContext().getRequestDispatcher("/WEB-INF/CreationCpt1.jsp").forward(request,response);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		beanCpt cpt=new beanCpt();
+		cpt.setFamille(request.getParameter("famille"));
+		
+		modelCreationCpt modelCpt=new modelCreationCpt();
+		modelCpt.creationCptFamille(cpt);
+		
+		this.getServletContext().getRequestDispatcher("/WEB-INF/CreationCpt.jsp").forward(request,response);
+	}
+
+}

@@ -1,0 +1,31 @@
+<%@ page pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="./ASSETS/css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+<title>Register</title>
+</head>
+<body>
+
+	<div class="container">
+		<div class="wrapper">
+			<form action="CreationCpt" method="post" class="form-signin">
+			<h3 class="form-signin-heading">Register</h3>
+				<hr class="colorgraph">
+				<br>
+				<label>Type de création de compte:</label>
+				 <label class="radio-inline"><input type="radio" name="optradio" value=0>par affiliation</label>
+    			<label class="radio-inline"><input type="radio" name="optradio" value=1>par création</label>
+   				<br>
+   				<input type="text" class="form-control" name="famille"	placeholder="type" required="" autofocus="" /><br>
+				<label>Nom du compte famille:</label>
+				
+				<button class="btn btn-md btn-primary btn-block" name="etape1" value="Etape1" type="Submit">Etape suivante</button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

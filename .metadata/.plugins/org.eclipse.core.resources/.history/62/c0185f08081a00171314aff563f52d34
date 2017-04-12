@@ -1,0 +1,37 @@
+package models;
+
+import java.math.BigInteger;
+import java.security.SecureRandom;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import beans.beanCpt;
+
+
+public class modelCreationCpt {
+		
+		
+	
+	public void creationCptFamille(beanCpt famille) {
+		
+		SecureRandom random =new SecureRandom();
+		BigInteger biginteger= new BigInteger(5,random);
+		String randomText=biginteger.toString(32);
+		
+		
+		try {
+
+			PreparedStatement preparedStatement = modelConnectionBDD.loadDataBase().prepareStatement
+					("insert into cpt_famille(User_famille,famille) values ('"+randomText+"',?);");
+			preparedStatement.setString(1, famille.getFamille());
+			preparedStatement.setString(2, famille.getFamille());
+			preparedStatement.executeUpdate();
+
+		} catch (SQLException e) {
+		// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+}
+
+

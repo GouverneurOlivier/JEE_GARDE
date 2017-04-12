@@ -1,0 +1,85 @@
+package models;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Random;
+import beans.beanCpt;
+import beans.beanCreation;
+
+public class modelCreationCpt {
+
+	
+	public void creationCptFamille(beanCpt famille ) { 
+
+		char[] chars = "abcdefghijklmnopqrstuvwxyz123456789".toCharArray();
+		StringBuilder sb = new StringBuilder();
+		Random random = new Random();
+		for (int i = 0; i < 5; i++) {
+		    char c = chars[random.nextInt(chars.length)];
+		    sb.append(c);
+		}
+		String output = sb.toString();
+		
+		try {
+
+			PreparedStatement preparedStatement = modelConnectionBDD.loadDataBase().prepareStatement
+					("insert into cpt_famille(User_famille,famille) values (?,?);");
+			preparedStatement.setString(1,output);
+			preparedStatement.setString(2,famille.getFamille());
+			preparedStatement.executeUpdate();
+
+		} catch (SQLException e) {
+		// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	public void CreationCptUser(beanCreation modelCrea,beanCpt famille){
+		
+		
+		char[] chars = "abcdefghijklmnopqrstuvwxyz123456789".toCharArray();
+		StringBuilder sb = new StringBuilder();
+		Random random = new Random();
+		for (int i = 0; i < 15; i++) {
+		    char c = chars[random.nextInt(chars.length)];
+		    sb.append(c);
+		}
+		String usertemp = sb.toString();
+		
+		StringBuilder sb1 = new StringBuilder();
+		Random random1 = new Random();
+		for (int i = 0; i < 15; i++) {
+		    char c = chars[random1.nextInt(chars.length)];
+		    sb.append(c);
+		}
+		String passtemp = sb1.toString();
+		
+		try {
+
+			PreparedStatement preparedStatement = modelConnectionBDD.loadDataBase().prepareStatement
+					("insert into users(id_famille,user,password,Nom,Prenom,Email,CodePostal)"
+							+ " (select cpt_famille.id from garde_alterne.cpt_famille where cpt_famille.famille=?),?,?,?,?,?,? ");
+
+			preparedStatement.setString(1,usertemp);
+			preparedStatement.setString(2,passtemp);
+			preparedStatement.setString(3,modelCrea.getNom());
+			preparedStatement.setString(4,modelCrea.getPrenom());
+			preparedStatement.setString(5,modelCrea.getEmail());
+			preparedStatement.setString(6,modelCrea.getCodePostal());
+			preparedStatement.setString(7,famille.getFamille());
+			preparedStatement.executeUpdate();
+
+			
+		} catch (SQLException e) {
+		// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
+}
+
+

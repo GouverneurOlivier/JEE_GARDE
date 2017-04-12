@@ -1,0 +1,11 @@
+package models;
+
+import beans.beanModificationCpt;
+
+public class modelModificationCpt {
+
+	public void modifCptuser(beanModificationCpt idUser ,beanModificationCpt idFamille ){
+		
+	}
+	
+}

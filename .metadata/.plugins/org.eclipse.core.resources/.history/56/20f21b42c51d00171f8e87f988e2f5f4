@@ -1,0 +1,7 @@
+#input.active{
+	display: block;
+}
+
+#input{
+	display: none;
+}

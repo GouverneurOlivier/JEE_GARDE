@@ -1,0 +1,3 @@
+
+<%@include file="/WEB-INF/head.jsp" %>
+<p>coucou</p>

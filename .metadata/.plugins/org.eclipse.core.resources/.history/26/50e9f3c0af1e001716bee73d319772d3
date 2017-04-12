@@ -1,0 +1,29 @@
+package models;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import beans.beanModificationCpt;
+
+public class modelModificationCpt {
+
+	public void modifCptuser(beanModificationCpt ModifCpt){
+		
+		try {
+			
+			PreparedStatement testLogin = modelConnectionBDD.loadDataBase().prepareStatement("select id from users where user=? and password=?;");
+			testLogin.setString(1, login.getUser());
+			testLogin.setString(2, login.getPassword());
+			ResultSet rs=testLogin.executeQuery();
+
+	
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
+

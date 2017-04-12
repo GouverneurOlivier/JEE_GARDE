@@ -1,0 +1,15 @@
+package beans;
+
+public class beanModificationCpt {
+	String NomUser;
+	String PrenomUser;
+	String MailUser;
+	String CodepostalUser;
+	String UserNameUser;
+	String PasswordUser;
+	String PasswordNewUser;
+	String PasswordconfirmUser;
+	String PrenomEnfant;
+	String NomEnfant;
+}
+	

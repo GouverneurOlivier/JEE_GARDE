@@ -1,0 +1,25 @@
+package models;
+
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import beans.beanModificationCpt;
+
+public class modelModificationCpt {
+
+	public void modifCptuser(beanModificationCpt ModifCpt){
+		try {
+
+			PreparedStatement preparedStatement = modelConnectionBDD.loadDataBase().prepareStatement
+					("select * values (?,?);");
+			preparedStatement.setString(1,"");
+			preparedStatement.setString(2,"");
+			preparedStatement.executeUpdate();
+
+		} catch (SQLException e) {
+		// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+}

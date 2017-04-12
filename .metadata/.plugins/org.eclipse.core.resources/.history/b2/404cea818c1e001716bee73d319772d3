@@ -1,0 +1,13 @@
+package beans;
+
+public class beanModificationCpt {
+	String IdUser;
+	String IdFamille;
+	String NomUser;
+	String PrenomUser;
+	String MailUser;
+	String CodepostalUser;
+	String UserNameUser;
+	String PasswordUser;
+}
+	

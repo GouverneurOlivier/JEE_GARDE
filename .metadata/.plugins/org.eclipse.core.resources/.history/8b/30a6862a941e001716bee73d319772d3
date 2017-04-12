@@ -1,0 +1,45 @@
+package controleurs;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import beans.beanModificationCpt;
+import models.modelCreationCpt;
+
+@WebServlet("/controleurModificationCpt")
+public class controleurModificationCpt extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    public controleurModificationCpt() {
+        super();
+       
+    }
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		beanModificationCpt ModifCpt = new beanModificationCpt();
+		ModifCpt.setIdUser(request.getParameter("iduser"));
+		ModifCpt.setIdFamille(request.getParameter("idfamille"));
+		ModifCpt.setNomUser(request.getParameter("nomuser"));
+		ModifCpt.setPrenomUser(request.getParameter("prenomuser"));
+		ModifCpt.setMailUser(request.getParameter("mailuser"));
+		ModifCpt.setUserNameUser(request.getParameter("usernameuser"));
+		ModifCpt.setPasswordUser(request.getParameter("passwordUser"));
+		
+		modelMo modelCpt=new modelCreationCpt();
+		modelCpt.creationCptFamille(cpt);
+		
+		this.getServletContext().getRequestDispatcher("/WEB-INF/ModificationCpt.jsp").forward(request,response);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
+		
+
+	}
+
+}

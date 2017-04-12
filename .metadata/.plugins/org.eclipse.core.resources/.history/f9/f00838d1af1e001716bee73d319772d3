@@ -1,0 +1,40 @@
+package models;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import beans.beanModificationCpt;
+
+public abstract class modelModificationCpt {
+
+	public beanModificationCpt recupererInformation(String idParam) {
+		
+		beanModificationCpt cptmodifie =  new beanModificationCpt();
+		try {
+			
+			PreparedStatement ModificationCpt = modelConnectionBDD.loadDataBase().prepareStatement("select * from users where user=? ;");
+			ModificationCpt.setString(1,idParam);
+			ResultSet rs=ModificationCpt.executeQuery();
+			cptmodifie.setIdUser(rs.getString(0));
+			cptmodifie.setIdFamille(rs.getString(1));
+			cptmodifie.setUserNameUser(rs.getString(2));
+			cptmodifie.setPasswordUser(rs.getString(3));
+			cptmodifie.setNomUser(rs.getString(4));
+			cptmodifie.setPrenomUser(rs.getString(5));
+			cptmodifie.setMailUser(rs.getString(6));
+			cptmodifie.setCodepostalUser(rs.getString(7));
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return cptmodifie ;
+		
+	}
+}
+	
+

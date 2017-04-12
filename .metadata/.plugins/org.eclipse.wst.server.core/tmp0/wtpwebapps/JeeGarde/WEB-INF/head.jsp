@@ -1,0 +1,100 @@
+<%@ page pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+		<div class="navbar-header" id="menudelog">
+			<ul class="nav navbar-nav">
+				<li class="dropdown-toggle"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown">My Garde Alterne</a>
+					<ul class="dropdown-menu">
+						<li><a href="#">Gestion du compte</a></li>
+						<li><a href="#">Evénements</a></li>
+						<li><a href="#">Vacances</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href="#">Separated link</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href="#">One more separated link</a></li>
+					</ul></li>
+			</ul>
+		</div>
+
+		<div class="collapse navbar-collapse">
+
+			<ul class="nav navbar-nav navbar-right">
+
+				<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><strong>Compte
+							Client</strong> </a>
+					<ul class="dropdown-menu">
+						<li>
+							<form action="Main" Method="post">
+								<div class="navbar-login">
+									<div class="row">
+										<p class="navbar-text">${sessionScope.user}</p>
+										<p class="navbar-text">${sessionScope.pass}</p>
+									</div>
+									<div class="row" id="test">
+
+										<div class="col-lg-12">
+											<p>
+												<input type="text" class="form-control" name="username"
+													id="input1" placeholder="UserName" required="" autofocus="" />
+											</p>
+											<p>
+												<input type="text" class="form-control" name="password"
+													id="input2" placeholder="PassWord" required="" autofocus="" />
+											</p>
+										</div>
+										<div class="col-lg-12">
+											<p class="text-left">
+												<button class="btn btn-info btn-block btn-sm" name="Log"
+													id="log" type="Submit">Connexion</button>
+											</p>
+										</div>
+
+										<div class="col-lg-12">
+											<p>
+												<a
+													href="<%=request.getContextPath() + response.encodeURL("/CreationCpt")%>"
+													class="btn btn-primary btn-block btn-sm">Création de
+													compte</a>
+											</p>
+										</div>
+
+
+									</div>
+									<div class="col-lg-12" id="delog">
+										<p>
+											<a
+												href="<%=request.getContextPath() + response.encodeURL("/Main")%>"
+												class="btn btn-danger btn-block btn-sm">Deconnexion</a>
+										</p>
+
+									</div>
+								</div>
+							</form>
+							<form action="MoficationCpt" method="post" id="menuCpt">
+							<div class="navbar-login">
+								<div class="row">
+									<div class="col-lg-12">
+										<p>
+											<a
+												href="<%=request.getContextPath() + response.encodeURL("/ModificationCpt")%>"
+												class="btn btn-primary btn-block btn-sm">Gestion du
+												compte</a>
+										</p>
+									</div>
+								</div>
+								</div>
+							</form>
+
+						</li>
+
+					</ul></li>
+			</ul>
+		</div>
+	</div>
+</div>
+

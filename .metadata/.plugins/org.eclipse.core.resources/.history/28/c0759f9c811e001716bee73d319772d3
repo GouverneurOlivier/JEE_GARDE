@@ -1,0 +1,8 @@
+function myfunction(){
+	var div = document.getElementById("test");
+	div.style.display="none";
+	var delog = document.getElementById("delog");
+	delog.style.display="block";
+ }
+
+
